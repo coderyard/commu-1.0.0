@@ -1,8 +1,9 @@
-package toyproject.commu;
+package toyproject.commu.repository;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import org.springframework.stereotype.Repository;
+import toyproject.commu.domain.Member;
 
 @Repository
 public class MemberRepository {
