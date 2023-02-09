@@ -18,7 +18,9 @@ public class Member {
     @GeneratedValue
     @Column(name="member_id")
     private Long id;
-    private String username;
+
+    private String name;
+    private String sex;
     private int age;
 
     @CreatedDate
@@ -29,5 +31,5 @@ public class Member {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "member")
-    List<Post> posts = new ArrayList<>();
+    private List<Post> posts = new ArrayList<>();
 }
