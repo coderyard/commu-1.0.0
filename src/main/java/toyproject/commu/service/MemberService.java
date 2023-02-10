@@ -2,6 +2,7 @@ package toyproject.commu.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import toyproject.commu.domain.Member;
 import toyproject.commu.repository.MemberRepository;
 
@@ -17,8 +18,8 @@ public class MemberService {
     // 회원 가입
     public Long join(Member member){
         validateDuplicateMember(member); // 중복 이름 검증 로직
-        memberRepository.save(member);
-        return member.getId();
+        Long saveId = memberRepository.save(member);
+        return saveId;
     }
 
     // 로그인 -> 서비스에 만드는 것이 좋을까? 아니면 Repository로 보내서 받아오는게 나을까?
@@ -41,4 +42,7 @@ public class MemberService {
     }
 
     // 특정 멤버 조회 (by Id, 비밀 번호 말고 이름, 나이, 성별)
+    public Member findMember(Long id){
+        return memberRepository.findOne(id);
+    }
 }
