@@ -28,4 +28,8 @@ public class PostService {
     public Post findPost(Long postId){
         return postRepository.findOne(postId);
     }
+
+    public List<Post> findPosts(){
+        return postRepository.findAll();
+    }
 }

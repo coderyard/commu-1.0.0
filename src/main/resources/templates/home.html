@@ -7,10 +7,17 @@
 <body>
 <div class="container">
   <div th:replace="fragments/bodyHeader :: bodyHeader" />
-  <div class="jumbotron"> <h1>HELLO SHOP</h1>
-    <p class="lead">회원 기능</p> <p>
+  <div class="jumbotron"> <h1>HELLO COMMU</h1>
+    <p class="lead">회원 기능</p>
+    <p>
       <a class="btn btn-lg btn-secondary" href="/members/new">회원 가입</a>
-      <a class="btn btn-lg btn-secondary" href="/members">회원 목록</a> </p>
+      <a class="btn btn-lg btn-secondary" href="/members">회원 목록</a>
+    </p>
+    <p class="lead">포스트 기능</p>
+    <p>
+      <a class="btn btn-lg btn-secondary" href="/posts/new">게시글 작성</a>
+      <a class="btn btn-lg btn-secondary" href="/posts">게시글 목록</a>
+    </p>
   </div>
   <div th:replace="fragments/footer :: footer" />
 </div> <!-- /container -->

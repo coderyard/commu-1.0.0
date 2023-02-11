@@ -2,15 +2,16 @@ package toyproject.commu.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import toyproject.commu.exception.LikeNegativeException;
 
 import java.time.LocalDateTime;
 
 @Entity
 @Getter
+@EntityListeners(AuditingEntityListener.class)
 public class Post {
     @Id
     @GeneratedValue
@@ -26,7 +27,7 @@ public class Post {
     @Column(length=400)
     private String content;
 
-    private int like;
+    private int likes;
 
     @CreatedDate
     private LocalDateTime createdAt;
@@ -48,21 +49,21 @@ public class Post {
         post.updatedAt = LocalDateTime.now();
         post.title = title;
         post.content = content;
-        post.like = 0;
+        post.likes = 0;
 
         return post;
     }
 
     public void addLike(){
-        this.like += 1;
+        this.likes += 1;
     }
 
     public void cancelLike(){
-        if (this.like == 0){
+        if (this.likes == 0){
             throw new LikeNegativeException("Like is zero");
         }
         else{
-            this.like -= 1;
+            this.likes -= 1;
         }
     }
 }

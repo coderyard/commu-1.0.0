@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post List</title>
+</head>
+<body>
+<h1><a href="/">Go home</a></h1>
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th>Member</th>
+      <th>작성 일자</th>
+      <th>like</th>
+    </tr>
+    <tr th:each="post : ${posts}">
+      <td th:text="${post.getId()}"></td>
+      <td th:text="${post.getTitle()}"></td>
+      <td th:text="${post.getContent()}"></td>
+      <td th:text="${post.getMember().getName()}"></td>
+      <td th:text="${post.getCreatedAt()}"></td>
+      <td th:text="${post.getLikes()}"></td>
+    </tr>
+  </table>
+</body>
+</html>
