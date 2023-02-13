@@ -17,6 +17,7 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 /src/main/resources/application.yml
+/src/main/java/toyproject/commu/config
 /h2
 /build.gradle
 /h2-2019-10-14.zip
